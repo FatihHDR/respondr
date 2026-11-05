@@ -30,14 +30,11 @@ export const typography = {
 
 export const themes = {
   light: {
-    background: "#EFF1F4",
-    backdropGlow: "#F2A63B",
-    backdropShade: "#8E9BAA",
+    backdropGradient: ["#FDFDFE", "#DCE2EB"],
     textPrimary: "#0E1116",
     textSecondary: "rgba(14, 17, 22, 0.6)",
     textTertiary: "rgba(14, 17, 22, 0.38)",
     tint: "#B45309",
-    accent: "#F59E0B",
     glassTint: "rgba(255, 255, 255, 0.55)",
     glassFallback: "rgba(255, 255, 255, 0.74)",
     glassFallbackStrong: "rgba(255, 255, 255, 0.88)",
@@ -51,14 +48,11 @@ export const themes = {
     severity: ["#8A93A0", "#C99A1E", "#E07C22", "#D2512A", "#BC2E2E"],
   },
   dark: {
-    background: "#0A0C0F",
-    backdropGlow: "#FF9F0A",
-    backdropShade: "#22303F",
+    backdropGradient: ["#1C2129", "#08090C"],
     textPrimary: "#FFFFFF",
     textSecondary: "rgba(255, 255, 255, 0.66)",
     textTertiary: "rgba(255, 255, 255, 0.4)",
     tint: "#FFB020",
-    accent: "#FFB020",
     glassTint: "rgba(255, 255, 255, 0.1)",
     glassFallback: "rgba(20, 23, 28, 0.6)",
     glassFallbackStrong: "rgba(26, 30, 36, 0.8)",

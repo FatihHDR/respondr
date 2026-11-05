@@ -64,10 +64,7 @@ export default function Index() {
   ));
 
   return (
-    <View style={styles.root}>
-      <GlassTarget style={styles.backdrop}>
-        <Backdrop />
-      </GlassTarget>
+    <GlassTarget backdrop={<Backdrop />}>
       <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
         <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
           <View style={styles.header}>
@@ -164,18 +161,11 @@ export default function Index() {
           </GlassSurface>
         </ScrollView>
       </SafeAreaView>
-    </View>
+    </GlassTarget>
   );
 }
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  backdrop: {
-    ...StyleSheet.absoluteFill,
-    pointerEvents: "none",
-  },
   safe: {
     flex: 1,
   },

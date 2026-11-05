@@ -54,6 +54,9 @@ export function GlassSurface({
   }, []);
 
   useEffect(() => {
+    if (Platform.OS !== "ios") {
+      return;
+    }
     let mounted = true;
     AccessibilityInfo.isReduceTransparencyEnabled()
       .then((enabled) => {

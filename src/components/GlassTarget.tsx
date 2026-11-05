@@ -1,5 +1,5 @@
 import { createContext, useContext, useRef, type ReactNode, type RefObject } from "react";
-import type { StyleProp, ViewInstance, ViewStyle } from "react-native";
+import { StyleSheet, View, type ViewInstance } from "react-native";
 import { BlurTargetView } from "expo-blur";
 
 const GlassTargetContext = createContext<RefObject<ViewInstance | null> | null>(null);
@@ -10,17 +10,30 @@ export function useGlassTarget(): RefObject<ViewInstance | null> | null {
 
 export type GlassTargetProps = {
   children: ReactNode;
-  style?: StyleProp<ViewStyle>;
+  backdrop: ReactNode;
 };
 
-export function GlassTarget({ children, style }: GlassTargetProps) {
+export function GlassTarget({ children, backdrop }: GlassTargetProps) {
   const targetRef = useRef<ViewInstance | null>(null);
 
   return (
     <GlassTargetContext.Provider value={targetRef}>
-      <BlurTargetView ref={targetRef} style={style}>
+      <View style={styles.root}>
+        <BlurTargetView ref={targetRef} style={styles.backdrop}>
+          {backdrop}
+        </BlurTargetView>
         {children}
-      </BlurTargetView>
+      </View>
     </GlassTargetContext.Provider>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
+  backdrop: {
+    ...StyleSheet.absoluteFill,
+    pointerEvents: "none",
+  },
+});
